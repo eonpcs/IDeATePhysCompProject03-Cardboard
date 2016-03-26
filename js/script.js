@@ -118,7 +118,7 @@ function init() {
 	camera.add(cursor);
 	cursor.position.set(0, 0, -3);
 
-	makeCubeGrid(50, 50, 0xff00ff); // make a demo grid of cubes
+	// makeCubeGrid(50, 50, 0xff00ff); // make a demo grid of cubes
 
 	loadAssets(); // load all other 3D assets
 
@@ -139,7 +139,7 @@ function loadAssets() {
 
 
 	// UNSELECTABLE OBJs ==========
-	var filenames = ["building"] // a list of all the filenames to load as unselectable OBJs
+	var filenames = ["Plane"] // a list of all the filenames to load as unselectable OBJs
 	for (var i = 0; i < filenames.length; i++) {
 		objMtlLoader.load("3D/" + filenames[i] + ".obj", "3D/" + filenames[i] + ".mtl", function(object, url) { // load the OBJ and companion MTL
 			scene.add(object); // add it to the scene
@@ -147,11 +147,15 @@ function loadAssets() {
 
 			var filename = (url.split('.')[0]).split('/')[1]
 			object.name = filename // add a property to the new object that is its filename
+
+			if (object.name = "Plane") {
+				console.log("Plane");
+			}
 		});
 	}
 
 	// SELECTABLE OBJs ==========
-	var filenames = ["stool"] // a list of all the filenames to load as selectable OBJs
+	var filenames = [] // a list of all the filenames to load as selectable OBJs
 	for (var i = 0; i < filenames.length; i++) {
 		objMtlLoader.load("3D/" + filenames[i] + ".obj", "3D/" + filenames[i] + ".mtl", function(object, url) { // load the OBJ and companion MTL
 			scene.add(object); // add it to the scene
